@@ -6,7 +6,11 @@ import { faArrowLeft, faHeart as fullHeart } from "@fortawesome/free-solid-svg-i
 import { faHeart as emptyHeart } from "@fortawesome/free-regular-svg-icons";
 
 import { HeaderNav, HeaderBtn, PkmTypes, Header, PkmName, PkmSprite, PkmType, PkmDetails, NavButtons, NavButton, DetailsNav } from "./style";
-import { PokeNumber, Type } from "../../components/Card/style";
+import { PokeNumber } from "../../components/Card/style";
+import About from './subPages/pages/About'
+import {  } from './subPages/pages/Evolution'
+import {  } from './subPages/pages/Moves'
+import {  } from './subPages/pages/Stats'
 
 
 function Info() {
@@ -44,15 +48,7 @@ function Info() {
                         <li><NavButton>Moves</NavButton></li>
                     </NavButtons>
                 </DetailsNav>
-                <ol style={{height: "100%"}}>
-                    <li>Species: 1</li>
-                    <li>Height: 12cm</li>
-                    <li>Weight: 12 kg</li>
-                    <li>Abilities: Overgrow, Chorophyl</li>
-                    <li>Gender: 12% mulher 11% homem</li>
-                    <li>Egg Groupes: Monster</li>
-                    <li>Egg Cycle: Grass</li>
-                </ol>
+                <About pkm={pkm}/>
             </PkmDetails>
         </>
     )

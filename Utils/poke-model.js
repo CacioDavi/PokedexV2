@@ -13,6 +13,8 @@ class Pokemon {
     eggGroups;
     eggCycle;
 
+    genderRate = {}
+
     hp;
     attack;
     defense;

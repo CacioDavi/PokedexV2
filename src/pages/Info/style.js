@@ -76,6 +76,8 @@ const PkmDetails = styled.section`
 const DetailsNav = styled.nav`
     display: flex;
     margin: 1rem 0 0 0;
+
+    list-style: none;
 `
 const NavButtons = styled.ul`
     display: flex;
@@ -90,6 +92,8 @@ const NavButton = styled.button`
     background-color: unset;
     border: none;
 
+    position: relative;
+
     &:hover {
         cursor: pointer;
     }
@@ -98,13 +102,18 @@ const NavButton = styled.button`
         display: block;
         position: absolute;
         content: '';
-        bottom: 0;
 
-        width: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
         height: 2px;
-        background-color: green;
+        background-color: #000;
     }
 
 `
 
-export { Header, HeaderNav, HeaderBtn, PkmName, PkmTypes, PkmType, PkmSprite, PkmDetails, DetailsNav, NavButtons, NavButton }
+export { 
+    Header, HeaderNav, HeaderBtn, 
+    PkmName, PkmTypes, PkmType, PkmSprite, 
+    PkmDetails, DetailsNav, NavButtons, 
+    NavButton }
