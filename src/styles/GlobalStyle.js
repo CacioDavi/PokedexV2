@@ -8,10 +8,17 @@ const globalStyles = createGlobalStyle`
     }
 
     body {
-        width: 100dvw;
         height: 100dvh;
-
+        width: 100%;
         background-color: #f7f9fc;
+    }
+
+    #root {
+        height: 100%;
+    }
+
+    main {
+        height: 100%;
     }
 
 `;

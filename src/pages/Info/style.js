@@ -1,17 +1,19 @@
-import styled from 'styled-components'
+import { styled, css } from 'styled-components'
 import { TypesList, ItemStyles, PokeName, Sprite, Type } from '../../components/Card/style'
+
+
+const Background = styled.div`
+    ${ItemStyles}
+    height: 100%;
+`
 
 const Header = styled.section`
     ${ItemStyles}
+    background-color: unset;
     margin: 0;
     border-radius: 0;
 
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    //padding: 0 0 12rem;
+    height: 100%;
 `
 
 const HeaderNav = styled.div`
@@ -48,34 +50,28 @@ const PkmType = styled(Type)`
 `
 
 const PkmSprite = styled(Sprite)`
-    height: 24vh;
+    height: 14rem;
     align-self: center;
+    transform: translateY(20px);
 
-    position: absolute;
-    top: 0; 
-    bottom: 0;
-
-    z-index: 1;
 `
 const PkmDetails = styled.section`
     display: flex;
     border-radius: 1rem 1rem 0 0;
 
     background-color: #fff;
+    color: #000;
 
     flex-direction: column;
-    justify-content: center;
 
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 59%;
+    padding: 0 1rem;
+    height: 100%;
 
 `
 const DetailsNav = styled.nav`
     display: flex;
     margin: 1rem 0 0 0;
+    justify-self: flex-start;
 
     list-style: none;
 `
@@ -108,12 +104,22 @@ const NavButton = styled.button`
         bottom: 0;
         height: 2px;
         background-color: #000;
+
+        transform: scale(0);
     }
+
+    ${({ $active }) => 
+        $active &&
+        css`
+            &::after {
+                transform: scale(1);
+            }
+        `};
 
 `
 
 export { 
-    Header, HeaderNav, HeaderBtn, 
+    Background, Header, HeaderNav, HeaderBtn, 
     PkmName, PkmTypes, PkmType, PkmSprite, 
     PkmDetails, DetailsNav, NavButtons, 
     NavButton }

@@ -23,14 +23,16 @@ const pkmTypes = {
 
 const ItemStyles = css`
     color: #fff;
-    background-color: ${props => {
-        const type = props.type
-        return pkmTypes[type.name]
+    /* background-color: ${props => {
+        //const type = props.$pkmtype;
+        //return pkmTypes[type.name]
+    }}; */
+    display: flex;
+    flex-direction: column;
+`
 
-    }};
-
-    //filter: brightness(.7);
-
+const PokeCard = styled.li`
+    ${ItemStyles}
     display: flex;
     flex-direction: column;
 
@@ -40,10 +42,6 @@ const ItemStyles = css`
     border-radius: 1rem;
 
     transition: scale .1s;
-`
-
-const PokeCard = styled.li`
-    ${ItemStyles}
     &:hover {
         cursor: pointer;
         scale: 1.05;
@@ -109,5 +107,5 @@ const Sprite = styled.img`
     height: 5rem;
 `
 
-export { PokeCard, PokeNumber, PokeName, PokeDetail, TypesList, Type, Sprite, ItemStyles }
+export { PokeCard, PokeNumber, PokeName, PokeDetail, TypesList, Type, Sprite, ItemStyles, pkmTypes }
 
