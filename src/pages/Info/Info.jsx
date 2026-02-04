@@ -1,10 +1,12 @@
 // React Resources
 import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+
 // FontAwesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faHeart as fullHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as emptyHeart } from "@fortawesome/free-regular-svg-icons";
+
 // Page Styles
 import { HeaderNav, HeaderBtn, PkmTypes, Header, PkmName, PkmSprite, 
         PkmType, PkmDetails, NavButtons, NavButton, DetailsNav, 
@@ -42,7 +44,7 @@ function Info() {
 
     return (
         <Background $pkmtype={pkm.type}>
-            <Header $pkmtype={pkm.type}>
+            <Header>
                 <HeaderNav>
                     <HeaderBtn onClick={RedirectToHome}><FontAwesomeIcon icon={faArrowLeft} /></HeaderBtn>
                     <HeaderBtn onClick={() => setFavorite(!favorited)}><FontAwesomeIcon icon={favorited ? fullHeart : emptyHeart} /></HeaderBtn>

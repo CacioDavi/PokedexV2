@@ -1,19 +1,17 @@
 import { styled, css } from 'styled-components'
-import { TypesList, ItemStyles, PokeName, Sprite, Type } from '../../components/Card/style'
+import { TypesList, CardBasicStyles, ColorTypeStyle, PokeName, Sprite, Type } from '../../components/Card/style'
 
 
 const Background = styled.div`
-    ${ItemStyles}
+    ${CardBasicStyles}
+    ${ColorTypeStyle}
     height: 100%;
 `
 
 const Header = styled.section`
-    ${ItemStyles}
-    background-color: unset;
-    margin: 0;
-    border-radius: 0;
-
+    ${CardBasicStyles}
     margin: 0 1.5rem;
+    border-radius: 0;
 
     height: 100%;
 `
@@ -22,12 +20,10 @@ const HeaderNav = styled.div`
     display: flex;
     justify-content: space-between;
 
-    //margin: 2.5rem 1rem;
     margin: 2.5rem 0;
 `
 
 const HeaderBtn = styled.button`
-
     color: #fff;
     border: none;
     background-color: rgba(0, 0, 0, 0);
