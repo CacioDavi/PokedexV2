@@ -41,8 +41,8 @@ function Info() {
 
 
     return (
-        <Background>
-            <Header>
+        <Background $pkmtype={pkm.type}>
+            <Header $pkmtype={pkm.type}>
                 <HeaderNav>
                     <HeaderBtn onClick={RedirectToHome}><FontAwesomeIcon icon={faArrowLeft} /></HeaderBtn>
                     <HeaderBtn onClick={() => setFavorite(!favorited)}><FontAwesomeIcon icon={favorited ? fullHeart : emptyHeart} /></HeaderBtn>

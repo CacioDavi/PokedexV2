@@ -23,10 +23,11 @@ const pkmTypes = {
 
 const ItemStyles = css`
     color: #fff;
-    /* background-color: ${props => {
-        //const type = props.$pkmtype;
-        //return pkmTypes[type.name]
-    }}; */
+    background-color: ${props => {
+        const type = props.$pkmtype;
+        //const type = props.type;
+        return (pkmTypes[type.name])
+    }};
     display: flex;
     flex-direction: column;
 `
@@ -44,7 +45,7 @@ const PokeCard = styled.li`
     transition: scale .1s;
     &:hover {
         cursor: pointer;
-        scale: 1.05;
+        scale: 1.02;
         border: 2px #000 solid;
         box-shadow: 0 12px 15px 10px rgba(0,0,0,0.64);
     }

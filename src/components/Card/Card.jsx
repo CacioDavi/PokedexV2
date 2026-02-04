@@ -12,7 +12,7 @@ function Card({pkm}) {
   }
   
     return (
-        <PokeCard onClick={() => RedirectToPkmInfo()} type={type}>
+        <PokeCard onClick={() => RedirectToPkmInfo()} $pkmtype={type} role='button'>
           <PokeNumber>#{id.toString().padStart(3, '0')}</PokeNumber>
           <PokeName>{name}</PokeName>
           <PokeDetail>

@@ -13,6 +13,8 @@ const Header = styled.section`
     margin: 0;
     border-radius: 0;
 
+    margin: 0 1.5rem;
+
     height: 100%;
 `
 
@@ -20,7 +22,8 @@ const HeaderNav = styled.div`
     display: flex;
     justify-content: space-between;
 
-    margin: 2.5rem 1rem;
+    //margin: 2.5rem 1rem;
+    margin: 2.5rem 0;
 `
 
 const HeaderBtn = styled.button`
