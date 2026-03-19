@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-const MeterBar = styled.meter`
+export const StatRow = styled.tr`
     
-`;
+`

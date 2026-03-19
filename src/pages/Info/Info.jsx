@@ -28,7 +28,6 @@ function Info() {
     const Location = useLocation();
 
     let pkm = JSON.parse(Location.state);
-    console.log(pkm)
 
     const SubPages = [
         <AboutPage pkm={pkm} />,

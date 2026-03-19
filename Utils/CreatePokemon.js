@@ -1,43 +1,42 @@
-import Pokemon from './poke-model'
+import Pokemon from './PkmModels/Pokemon'
 
 async function CreatePokemon(pokeDetails) {
 
-    const pokemon = new Pokemon();
-
-    pokemon.id = pokeDetails.id;
-    pokemon.name = pokeDetails.name;
-
-    pokemon.types = pokeDetails.types;
-    pokemon.type = pokemon.types[0].type;
-
-    pokemon.sprite = pokeDetails.sprites.other.dream_world.front_default;
-
-
     const specieInfo = await GetPkmSpecieInfo(pokeDetails.species.url);
-    
-    pokemon.height = pokeDetails.height * 10;
-    pokemon.weight = pokeDetails.weight / 10;
-    pokemon.abilities = Object.entries(pokeDetails.abilities).map((entry) => {
-        return entry[1].ability.name
-    });
-
-    pokemon.species = OrganizeSpecies(specieInfo);
-    pokemon.eggGroups = OrganizeEggGroups(specieInfo);
-
-    // Stats
     const stats = Object.fromEntries(pokeDetails.stats.map((stat) => {
-        stat.stat.name.replace('-', '_')
-        return [stat.stat.name, stat.base_stat]
-    }))
-    pokemon.hp = stats.hp;
-    pokemon.attack = await stats.attack;
-    pokemon.defense = stats.defense;
-    pokemon.spAttack = stats.special_attack;
-    pokemon.spDefense = stats.special_defense;
-    pokemon.speed = stats.speed;
+        let statusName = stat.stat.name.replace('-', '_')
+        return [statusName, stat.base_stat]
+    }));
+    const types = pokeDetails.types;
+    const femaleRate = specieInfo.gender_rate * 12.5;
 
-    pokemon.genderRate.femaleRate = specieInfo.gender_rate * 12.5;
-    pokemon.genderRate.maleRate = 100 - pokemon.genderRate.femaleRate;
+    const pokemon = new Pokemon({
+        id: pokeDetails.id,
+        name: pokeDetails.name,
+        types,
+        type: types[0].type,
+        sprite: pokeDetails.sprites.other.dream_world.front_default,
+
+        height: pokeDetails.height * 10,
+        weight: pokeDetails.weight / 10,
+        abilities: Object.entries(pokeDetails.abilities).map((entry) => {
+            return entry[1].ability.name
+        }),
+
+        //Exige testes
+        species: OrganizeSpecies(specieInfo),
+        eggGroups: OrganizeEggGroups(specieInfo),
+
+        hp: stats.hp,
+        attack: await stats.attack,
+        defense: stats.defense,
+        spAttack: stats.special_attack,
+        spDefense: stats.special_defense,
+        speed: stats.speed,
+
+        femaleRate,
+        maleRate: 100 - femaleRate,
+    });
     
     return pokemon;
 }
@@ -56,10 +55,10 @@ function OrganizeSpecies(specieInfo) {
 }
 
 
-function GetPkmSpecieInfo(specieUrl) {
-    return fetch(specieUrl)
-        .then(res => res.json())
-        .then(specieInfo => specieInfo)
+async function GetPkmSpecieInfo(specieUrl) {
+    const specieInfo = await fetch(specieUrl);
+    const specieJson = await specieInfo.json();
+    return specieJson;
 }
 
 export default CreatePokemon;
